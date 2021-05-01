@@ -1,70 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>indexproduit</ion-title>
+    <ion-title style="background-color: crimson;">indexproduit</ion-title>
   </ion-toolbar>
 </ion-header>
-<script>
+<ion-content class="content"><br/>
 
-  // Basic example
-$(document).ready(function () {
-  $('#dtBasicExample').DataTable({
-    "paging": false // false to disable pagination (or any other option)
-  });
-  $('.dataTables_length').addClass('bs-select');
-});
-</script>
-<ion-content class="content" ><br/>
 
-  <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-    <thead>
-      <tr>
-        <th class="th-sm">Id
-  
-        </th>
-        <th class="th-sm">Nom de Produit
-  
-        </th>
-        <th class="th-sm">Description
-  
-  
-        </th>
-        <th class="th-sm">Prix
-  
-        </th>
-       
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let produit of produits">
-        <td>{{produit.id}}</td>
-        <td>{{produit.nomprod}}</td>
-        <td>{{produit.description}}</td>
-        <td>{{produit.prix}}</td>
-        <td>  <ion-button href="">delete</ion-button></td>
-        <td><ion-button href="">delete</ion-button></td>
-      </tr>
-  
-    
-    </tbody>
-    <tfoot>
-      <tr>
-        <th class="th-sm">Id
-  
-        </th>
-        <th class="th-sm">Nom de Produit
-  
-        </th>
-        <th class="th-sm">Description
-  
-  
-        </th>
-        <th class="th-sm">Prix
-  
-        </th>
-       
-        
-    </tfoot>
-  </table>
-</ion-content>
 
+    <table id="dtBasicExample" class="table table-striped table-bordered
+      table-sm" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th class="th-sm">Id
+
+          </th>
+          <th class="th-sm">Nom de Produit
+
+          </th>
+          <th class="th-sm">Description
+
+
+          </th>
+          <th class="th-sm">Prix
+
+          </th>
+          <th class="th-sm">Action
+
+          </th>
+          <th class="th-sm">Action
+
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produit of produits">
+          <td>{{produit.id}}</td>
+          <td>{{produit.nomprod}}</td>
+          <td>{{produit.description}}</td>
+          <td>{{produit.prix}}</td>
+          <td> <ion-button color="success" routerLink='/editproduit/{{
+              produit.id }}'>Update</ion-button></td>
+
+
+          <td><ion-button color="danger" (click)="delete(produit)">delete</ion-button></td>
+        </tr>
+
+
+      </tbody>
+
+    </table>
+  </ion-content>

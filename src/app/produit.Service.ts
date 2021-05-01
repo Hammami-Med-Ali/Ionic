@@ -1,25 +1,42 @@
 import { User } from './Model/User';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
-/* import { login } from './Model/login'; */
+import { Produit } from './Model/Produit';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
-    providedIn:'root'
+  providedIn: 'root'
 })
 
-export class ProduitService{
-    constructor(private http:HttpClient){}
-      save(produitsave){
+export class ProduitService {
 
-return this.http.post("http://127.0.0.1:8000/api/produit", produitsave);
-      }
-      show(){
-        return this.http.get("http://127.0.0.1:8000/api/produits");
-      }
+  constructor(private http: HttpClient) { }
+  //************************ */
+  save(produitsave) {
 
-      update(){
-       // return this.http.put("http://127.0.0.1:8000/api/produitupdate");
+    return this.http.post(environment.base_path + "api/produit", produitsave);
+  }
+  //************************ */
+  show() {
+    return this.http.get<any[]>(environment.base_path + "api/produits");
+  }
+  //************************ */
+  getItem(id): Observable<Produit> {
+    return this.http
+      .get<Produit>(environment.base_path + 'api/produit/' + id)
+  }
+  //************* */
+  updateItem(id, item): Observable<Produit> {
+    debugger;
+    return this.http
+      .put<Produit>(environment.base_path + 'api/produitupdate/' + id,item)
 
-      }
-    }
+  }
+  deleteItem(id) {
+
+    return this.http.delete(environment.base_path + 'api/produitdelete/' + id)
+
+  }
+}

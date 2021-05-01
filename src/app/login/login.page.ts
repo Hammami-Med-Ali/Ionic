@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
       
 
       if (res.message == 'Invalid credentials') {
-        this.presenttoast("rak ghaletvérifier votre email");
+        this.presenttoast("vérifier votre email");
       }
 
       else {

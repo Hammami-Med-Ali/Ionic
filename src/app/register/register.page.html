@@ -9,40 +9,60 @@
 
 
 
-  <ion-content class="content" ><br/>
+<ion-content class="content">
+  <br/>
 
     <form [formGroup]="registerform">
       <ion-grid>
-        <ion-row >
-         <br>
-  
-          <ion-col  size-md="6" size-lg="5" size-xs="12">
+        <ion-row>
+          <br>
+
+          <ion-col size-md="6" size-lg="5" size-xs="12">
           </ion-col>
         </ion-row>
       </ion-grid>
-  <div style="margin-top: 100px;" >
-    <ion-item style=" border-radius: 25px;width: 98%;margin: 0 auto;" ><br/>
-      <ion-label color="sunny"> @ </ion-label>
-      <ion-input type="text" formControlName="name"  name="name" placeholder="your name"  ></ion-input>
-    </ion-item><br/>
-            <ion-item style=" border-radius: 25px;width: 98%;margin: 0 auto;" ><br/>
-              <ion-label color="sunny"> @ </ion-label>
-              <ion-input type="text" formControlName="email"  name="fullname" placeholder="your email"  ></ion-input>
-            </ion-item><br/>
-  
-            <ion-item style=" border-radius: 25px;;width: 98%;margin: 0 auto;">
-              <ion-label color="sunny"><ion-icon name="Key-outline" style="color: #0e0d40"></ion-icon></ion-label>
-              <ion-input type="password" formControlName="password"  name="fullname" placeholder="your password"  ></ion-input>
-            </ion-item><br/><br/>
-  <div >
-            <ion-button style="width: 80%;margin: 0 auto;"  color="light" expand="block" (click)="register()"  shape="round" fill="outline">Register</ion-button>
-            <ion-button href="/login">Login</ion-button>
-            <br>
-            
-  </div>
-  </div>
-    </form>
-  </ion-content>
-  
-  
+      <div style="margin-top: 100px;">
+        <ion-item style="border-radius: 25px;width: 98%;margin: 0 auto;"><br/>
+            <ion-label color="sunny"> </ion-label>
+            <ion-input type="text" formControlName="name" name="name"
+              placeholder="your name"></ion-input>
+            <small class="text-danger"
+              *ngIf="registerform.get('name').touched && registerform.get('name').hasError('required')">
+              this field is required
+            </small>
+            <small class="text-danger"
+              *ngIf="registerform.get('name').hasError('minlength')">
+              the minimum length for this field is 8 characters
+            </small>
+          </ion-item><br/>
+          </div>
 
+          <ion-item style="border-radius: 25px;width: 98%;margin: 0 auto;">
+            <br/>
+              <ion-label color="sunny"> @ </ion-label>
+              <div>
+                <ion-input type="text" formControlName="email" name="fullname"
+                  placeholder="your email"></ion-input>
+                  </div>
+              </ion-item>
+              <br/>
+
+                <ion-item style="border-radius: 25px;;width: 98%;margin: 0
+                  auto;">
+                  <ion-label color="sunny"><ion-icon name="Key-outline"
+                      style="color: #0e0d40"></ion-icon></ion-label>
+                  <ion-input type="password" formControlName="password"
+                    name="fullname" placeholder="your password"></ion-input>
+                </ion-item><br/><br/>
+                <div>
+                      <ion-button style="width: 80%;margin: 0 auto;"
+                        color="light" expand="block" (click)="register()"
+                        shape="round" fill="outline">Register</ion-button>
+                      <ion-button href="/login" style="width: 80%;margin: 0
+                        auto;" color="light" expand="block" shape="round"
+                        fill="outline">Login</ion-button>
+                      <br>
+
+                    </div>
+              </form>
+            </ion-content>

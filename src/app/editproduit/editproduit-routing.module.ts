@@ -5,7 +5,7 @@ import { EditproduitPage } from './editproduit.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: EditproduitPage
   }
 ];

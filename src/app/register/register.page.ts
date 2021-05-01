@@ -14,7 +14,7 @@ export class RegisterPage implements OnInit {
 
   constructor(public userservice: UserService, private router: Router, public toastController: ToastController, private formbuilder: FormBuilder) { 
     this.registerform = formbuilder.group({
-      name: ["", [Validators.required]],
+      name: ["", [Validators.required,Validators.minLength(4)]],
       email: ["", [Validators.required, Validators.email]],
       password: ["", [Validators.required, Validators.minLength(6)]],
       
@@ -24,6 +24,7 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 register(){
+  
   console.log(this.registerform.value);
   this.userservice.register(this.registerform.value).subscribe(res =>{
     this.router.navigate(['login'])
