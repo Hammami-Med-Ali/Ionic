@@ -1,7 +1,5 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>produit</ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
@@ -16,22 +14,50 @@
     </ion-grid>
 <div style="margin-top: 100px;" >
   <ion-item style=" border-radius: 25px;width: 98%;margin: 0 auto;" ><br/>
-    <ion-label color="sunny"> @ </ion-label>
-    <ion-input type="text" formControlName="nomprod"  name="nomprod" placeholder="le nom de produit"  ></ion-input>
+    <ion-label color="sunny"> </ion-label>
+    <ion-input type="text" formControlName="nomprod"  name="nomprod" placeholder="Name of product"  ></ion-input>
+    <small class="text-danger" *ngIf="createform.get('nomprod').hasError('required')">
+      this field is required
+    </small>
+    <small class="text-danger" *ngIf="createform.get('nomprod').hasError('minlength')">
+      the minimum length for this field is 10 characters
+    </small>
   </ion-item><br/>
           <ion-item style=" border-radius: 25px;width: 98%;margin: 0 auto;" ><br/>
-            <ion-label color="sunny"> @ </ion-label>
-            <ion-input type="text" formControlName="description"  name="description" placeholder="la description de produit "  ></ion-input>
+            <ion-label color="sunny"> </ion-label>
+            <ion-input type="text" formControlName="description"  name="description" placeholder=" Description Of Product "  ></ion-input>
+            <small class="text-danger" *ngIf="createform.get('description').hasError('required')">
+              this field is required
+            </small>
+            <small class="text-danger" *ngIf="createform.get('description').hasError('minlength')">
+              the minimum length for this field is 20 characters
+            </small>
+            <small class="text-danger" *ngIf="createform.get('description').hasError('maxlength')">
+              the maximum length for this field is 100 characters
+            </small>
           </ion-item><br/>
 
           <ion-item style=" border-radius: 25px;;width: 98%;margin: 0 auto;">
-            <ion-label color="sunny"><ion-icon name="Key-outline" style="color: #0e0d40"></ion-icon></ion-label>
-            <ion-input type="prix" formControlName="prix"  name="prix" placeholder="le prix de produit svp"  ></ion-input>
+            <ion-label color="sunny"></ion-label>
+            <ion-input type="prix" formControlName="prix"  name="prix" placeholder="The Price Please"  ></ion-input>
+            <small class="text-danger" *ngIf="createform.get('prix').hasError('required')">
+              this field is required
+            </small>
+            <small class="text-danger" *ngIf="createform.get('prix').hasError('min')">
+              the minimun of number is 1.
+            </small>
+            <small class="text-danger" *ngIf="createform.get('prix').hasError('max')">
+              the maximum of number is 20000.
+            </small>
+            <small class="text-danger" *ngIf="createform.get('prix').hasError('pattern')">
+              write just a number.
+            </small>
           </ion-item><br/><br/>
           
 <div >
-          <ion-button style="width: 80%;margin: 0 auto;"  color="light" expand="block" (click)="create()"  shape="round" fill="outline">Ajouter</ion-button>
-          <ion-button href="/home">Home</ion-button>
+          <ion-button style="width: 80%;margin: 0 auto;"  color="light" expand="block" (click)="create()"  shape="round" fill="outline">Add Product</ion-button><br>
+          <ion-button href="/indexproduit" style="width: 80%;margin: 0 auto;"  color="light" expand="block"  shape="round" fill="outline" >List Of Products</ion-button><br>
+          <ion-button href="/home" style="width: 80%;margin: 0 auto;"  color="light" expand="block"  shape="round" fill="outline" >Home</ion-button>
           <br>
           
 </div>

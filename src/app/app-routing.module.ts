@@ -9,13 +9,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'user/:id',
-    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
-  },
+ 
   {
     path: 'produit',
     loadChildren: () => import('./produit/produit.module').then( m => m.ProduitPageModule)

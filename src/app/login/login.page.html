@@ -16,16 +16,26 @@
 <div style="margin-top: 100px;" >
           <ion-item style=" border-radius: 25px;width: 98%;margin: 0 auto;" ><br/>
             <ion-label color="sunny"> @ </ion-label>
-            <ion-input type="text" formControlName="email"  name="fullname" placeholder="your email"  ></ion-input>
+            <ion-input type="text" formControlName="email"  name="fullname" placeholder="your email"></ion-input>
+            <small class="text-danger" *ngIf="loginform.get('email').hasError('required')">
+              this field is required
+            </small>
+            <small class="text-danger" *ngIf="loginform.get('email').hasError('email')">
+              Please enter a valid email
+            </small>
           </ion-item><br/>
 
           <ion-item style=" border-radius: 25px;;width: 98%;margin: 0 auto;">
             <ion-label color="sunny"><ion-icon name="Key-outline" style="color: #0e0d40"></ion-icon></ion-label>
-            <ion-input type="password" formControlName="password"  name="fullname" placeholder="your name"  ></ion-input>
+            <ion-input type="password" formControlName="password"  name="fullname" placeholder="your password"  ></ion-input>
+            <small class="text-danger" *ngIf=" loginform.get('password').hasError('required')">This field is required</small>
+      <small class="text-danger" *ngIf=" loginform.get('password').hasError('minlength')">The minimum length for this field is 5 characters</small>
+      <small class="text-danger" *ngIf=" loginform.get('password').hasError('maxlength')">The maximum length for this field is 15 characters </small>
           </ion-item><br/><br/>
 <div >
-          <ion-button style="width: 80%;margin: 0 auto;"  color="light" expand="block" (click)="login()"  shape="round" fill="outline">Connexion</ion-button>
-          <ion-button href="/register">Register</ion-button>
+          <ion-button style="width: 80%;margin: 0 auto;"  color="light" expand="block" (click)="login()"  shape="round" fill="outline">Connexion</ion-button><br>
+          <ion-button href="/register" style="width: 80%;margin: 0 auto;"  color="light" expand="block"  shape="round" fill="outline" >Register</ion-button><br>
+          <ion-button href="/home" style="width: 80%;margin: 0 auto;"  color="light" expand="block"  shape="round" fill="outline" >Home</ion-button>
           <br>
           
 </div>

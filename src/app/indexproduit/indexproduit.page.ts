@@ -26,12 +26,6 @@ export class IndexproduitPage implements OnInit {
   }
   delete(produit) {
     //Delete item in Student data
-
- /*    for (let i=0;i<=this.produits.length;i++){
-        if (this.produits[i] == produit){
-          console.log(i);
-        }
-    } */
     this.produitservice.deleteItem(produit.id).subscribe(Response => {
       //Update list after delete is successful
       let index = this.produits.findIndex(p =>  p == produit);

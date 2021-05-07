@@ -15,29 +15,59 @@
 
       <div style="margin-top: 100px;">
         <ion-item style="border-radius: 25px;width: 98%;margin: 0 auto;"><br/>
-            <ion-label color="sunny"> @ </ion-label>
+            <ion-label color="sunny"> </ion-label>
             <ion-input type="number" formControlName="id" name="id"
               placeholder="Id de produit"></ion-input>
+            
+            <small class="text-danger" *ngIf="editform.get('id').hasError('min')">
+              the minimun of number is 1 and positif .
+            </small>
           </ion-item><br/>
             <ion-item style="border-radius: 25px;width: 98%;margin: 0 auto;"><br/>
-                <ion-label color="sunny"> @ </ion-label>
+                <ion-label color="sunny"> </ion-label>
                 <ion-input type="text" formControlName="nomprod"
                   name="nomprod" placeholder="le nom de produit"></ion-input>
+                  <small class="text-danger" *ngIf="editform.get('nomprod').hasError('required')">
+                    this field is required
+                  </small>
+                  <small class="text-danger" *ngIf="editform.get('nomprod').hasError('minlength')">
+                    the minimum length for this field is 10 characters
+                  </small>
               </ion-item><br/>
                 <ion-item style="border-radius: 25px;width: 98%;margin: 0
                   auto;"><br/>
-                    <ion-label color="sunny"> @ </ion-label>
+                    <ion-label color="sunny"> </ion-label>
                     <ion-input type="text" formControlName="description"
                       name="description" placeholder="la description de
                       produit"></ion-input>
+                      <small class="text-danger" *ngIf="editform.get('description').hasError('required')">
+                        this field is required
+                      </small>
+                      <small class="text-danger" *ngIf="editform.get('description').hasError('minlength')">
+                        the minimum length for this field is 20 characters
+                      </small>
+                      <small class="text-danger" *ngIf="editform.get('description').hasError('maxlength')">
+                        the maximum length for this field is 100 characters
+                      </small>
                   </ion-item><br/>
 
                     <ion-item style="border-radius: 25px;;width: 98%;margin: 0
                       auto;">
-                      <ion-label color="sunny"><ion-icon name="Key-outline"
-                          style="color: #0e0d40"></ion-icon></ion-label>
+                      <ion-label color="sunny"></ion-label>
                       <ion-input type="prix" formControlName="prix"
                         name="prix" placeholder="le prix de produit svp"></ion-input>
+                        <small class="text-danger" *ngIf="editform.get('prix').hasError('required')">
+                          this field is required
+                        </small>
+                        <small class="text-danger" *ngIf="editform.get('prix').hasError('min')">
+                          the minimun of number is 1.
+                        </small>
+                        <small class="text-danger" *ngIf="editform.get('prix').hasError('max')">
+                          the maximum of number is 20000.
+                        </small>
+                        <small class="text-danger" *ngIf="editform.get('prix').hasError('pattern')">
+                          write just  a number.
+                        </small>
                     </ion-item><br/><br/>
 
                         <div>
@@ -45,7 +75,7 @@
                             color="light" expand="block"
                             (click)="update(editform)"
                             shape="round" fill="outline">enregistrer</ion-button>
-                          <ion-button href="/home">Home</ion-button>
+                          
                           <br>
 
                         </div>

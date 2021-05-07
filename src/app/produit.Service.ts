@@ -29,7 +29,7 @@ export class ProduitService {
   }
   //************* */
   updateItem(id, item): Observable<Produit> {
-    debugger;
+  
     return this.http
       .put<Produit>(environment.base_path + 'api/produitupdate/' + id,item)
 

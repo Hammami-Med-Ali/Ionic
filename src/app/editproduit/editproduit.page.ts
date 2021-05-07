@@ -18,10 +18,10 @@ export class EditproduitPage implements OnInit {
   constructor(public produitservice: ProduitService, private router: Router, private formbuilder: FormBuilder, public activatedRoute: ActivatedRoute
     ) {
     this.editform = formbuilder.group({
-      id: ["", [Validators.required]],
-      nomprod: ["", [Validators.required]],
-      description: ["", [Validators.required]],
-      prix: ["", [Validators.required]],
+      id: ["", [Validators.required,Validators.min(1)]],
+      nomprod: ["", [Validators.required,Validators.minLength(10)]],
+      description: ["", [Validators.required,Validators.minLength(20),Validators.maxLength(100)]],
+      prix: ["", [Validators.required,Validators.min(1),Validators.max(20000),Validators.pattern("[0-9]+")]],
        })
    }
 

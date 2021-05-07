@@ -1,7 +1,5 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
+ 
 </ion-header>
 
 
@@ -23,29 +21,30 @@
       </ion-grid>
       <div style="margin-top: 100px;">
         <ion-item style="border-radius: 25px;width: 98%;margin: 0 auto;"><br/>
-            <ion-label color="sunny"> </ion-label>
+            <ion-label color="sunny" > </ion-label>
             <ion-input type="text" formControlName="name" name="name"
               placeholder="your name"></ion-input>
             <small class="text-danger"
-              *ngIf="registerform.get('name').touched && registerform.get('name').hasError('required')">
+              *ngIf="registerform.get('name').dirty && registerform.get('name').hasError('required') && registerform.get('name').touched">
               this field is required
             </small>
             <small class="text-danger"
               *ngIf="registerform.get('name').hasError('minlength')">
-              the minimum length for this field is 8 characters
+              the minimum length for this field is  characters
             </small>
           </ion-item><br/>
           </div>
 
-          <ion-item style="border-radius: 25px;width: 98%;margin: 0 auto;">
-            <br/>
-              <ion-label color="sunny"> @ </ion-label>
-              <div>
-                <ion-input type="text" formControlName="email" name="fullname"
-                  placeholder="your email"></ion-input>
-                  </div>
-              </ion-item>
-              <br/>
+          <ion-item style=" border-radius: 25px;width: 98%;margin: 0 auto;" ><br/>
+            <ion-label color="sunny"> @ </ion-label>
+            <ion-input type="text" formControlName="email"  name="fullname" placeholder="your email"></ion-input>
+            <small class="text-danger" *ngIf="registerform.get('email').hasError('required')">
+              this field is required
+            </small>
+            <small class="text-danger" *ngIf="registerform.get('email').hasError('email')">
+              Please enter a valid email
+            </small>
+          </ion-item><br/>
 
                 <ion-item style="border-radius: 25px;;width: 98%;margin: 0
                   auto;">
@@ -53,14 +52,18 @@
                       style="color: #0e0d40"></ion-icon></ion-label>
                   <ion-input type="password" formControlName="password"
                     name="fullname" placeholder="your password"></ion-input>
+                    <small class="text-danger" *ngIf=" registerform.get('password').hasError('required')">This field is required</small>
+      <small class="text-danger" *ngIf=" registerform.get('password').hasError('minlength')">The minimum length for this field is 5 characters</small>
+      <small class="text-danger" *ngIf=" registerform.get('password').hasError('maxlength')">The maximum length for this field is 15 characters </small>
                 </ion-item><br/><br/>
                 <div>
                       <ion-button style="width: 80%;margin: 0 auto;"
                         color="light" expand="block" (click)="register()"
-                        shape="round" fill="outline">Register</ion-button>
+                        shape="round" fill="outline">Register</ion-button><br>
                       <ion-button href="/login" style="width: 80%;margin: 0
                         auto;" color="light" expand="block" shape="round"
-                        fill="outline">Login</ion-button>
+                        fill="outline">Login</ion-button><br>
+                        <ion-button href="/home" style="width: 80%;margin: 0 auto;"  color="light" expand="block"  shape="round" fill="outline" >Home</ion-button>
                       <br>
 
                     </div>

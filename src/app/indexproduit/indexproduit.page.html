@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="background-color: crimson;">indexproduit</ion-title>
+    <ion-title style="" ><center>Liste de produits</center></ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="content"><br/>
@@ -14,14 +14,14 @@
           <th class="th-sm">Id
 
           </th>
-          <th class="th-sm">Nom de Produit
+          <th class="th-sm">Name of Product
 
           </th>
           <th class="th-sm">Description
 
 
           </th>
-          <th class="th-sm">Prix
+          <th class="th-sm">Price
 
           </th>
           <th class="th-sm">Action
@@ -45,8 +45,13 @@
           <td><ion-button color="danger" (click)="delete(produit)">delete</ion-button></td>
         </tr>
 
-
+        
       </tbody>
 
     </table>
+    <form>
+          <div><center><ion-button href="/produit" style="width: 80%;margin: 0 auto;"  expand="block"  shape="round" fill="outline" >Add a product</ion-button></center>
+          
+          </div>
+        </form>
   </ion-content>
